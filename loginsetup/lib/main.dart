@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:loginsetup/Page/Awal.dart';
 import 'package:loginsetup/Page/auth_page.dart';
 import 'package:loginsetup/Page/Monitoring.dart';
+// import 'package:loginsetup/Page/Setting.dart';
+import 'package:loginsetup/Page/DataHistory.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
         '/Awal': (context) => Awal(),
         '/auth_page': (context) => LoginPage(),
         '/Monitoring': (context) => Monitoring(),
+        // '/Setting': (context) => Setting(),
+        '/DataHistory': (context) => DataHistory()
       },
     );
   }
