@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
+import 'Monitoring.dart';
 import '../Provider/auth.dart' as myAuth;
 
 class LoginPage extends StatelessWidget {
@@ -8,16 +9,31 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
+      logo: "lib/assets/logo2.png",
       title: 'Monitoring GreenHouse',
       onLogin: _authenticateUser,
       onSignup: _registerUser,
       onRecoverPassword: _recoverPassword,
       onSubmitAnimationCompleted: () {
-        Navigator.of(context).pushReplacementNamed('/Monitoring');
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => Monitoring(),
+          ),
+        );
       },
       theme: LoginTheme(
-        primaryColor: const Color.fromARGB(255, 37, 131, 24),
-        accentColor: const Color.fromARGB(255, 235, 230, 230),
+        primaryColor: const Color.fromARGB(255, 91, 91, 91),
+        accentColor: const Color.fromARGB(255, 255, 255, 255),
+        titleStyle: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: const Color.fromARGB(255, 231, 242, 231),
+        ),
+        buttonTheme: LoginButtonTheme(
+          backgroundColor: const Color.fromARGB(255, 7, 92, 7),
+          highlightColor: const Color.fromARGB(255, 25, 158, 94),
+          elevation: 5.0,
+        ),
       ),
     );
   }
