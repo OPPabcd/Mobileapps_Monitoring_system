@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+// import 'package:loginsetup/Page/Setting.dart';
+import 'package:loginsetup/Page/DataHistory.dart';
+import 'auth_page.dart';
+// import 'Awal.dart';
 
 void main() {
   runApp(Monitoring());
@@ -18,6 +22,92 @@ class GreenHouseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+        elevation: 0,
+      ),
+      endDrawer: Drawer(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(20),
+              width: double.infinity,
+              height: 120,
+              color: const Color.fromARGB(211, 19, 97, 42),
+              alignment: Alignment.bottomLeft,
+              child: const Text(
+                "Setting",
+                style: TextStyle(
+                    color: Color.fromARGB(255, 247, 249, 250), fontSize: 25),
+              ),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => Monitoring(),
+                  ),
+                );
+              },
+              leading: Icon(
+                Icons.sunny,
+                size: 35,
+              ),
+              title: Text(
+                "Monitoring",
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => DataHistory(),
+                  ),
+                );
+              },
+              leading: Icon(
+                Icons.history,
+                size: 35,
+              ),
+              title: Text(
+                "Histori",
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            // SizedBox(
+            //   height: 10,
+            // )
+            ListTile(
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(),
+                  ),
+                );
+              },
+              leading: Icon(
+                Icons.logout_sharp,
+                color: Colors.red,
+                size: 35,
+              ),
+              title: Text(
+                "Logout",
+                style: TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
       body: Stack(
         children: [
           Column(
@@ -26,8 +116,7 @@ class GreenHouseScreen extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(
-                          'assets/greenhouse.jpg'), // Sesuaikan dengan gambar yang ada di assets Anda
+                      image: AssetImage('lib/assets/monitoring.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -44,13 +133,20 @@ class GreenHouseScreen extends StatelessWidget {
                 child: Text(
                   'Monitoring\nGreen House',
                   style: TextStyle(
-                    color: const Color.fromARGB(169, 25, 141, 19),
+                    color: const Color.fromARGB(255, 255, 255, 255),
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
+                    shadows: [
+                      Shadow(
+                        offset: Offset(5.0, 5.0),
+                        blurRadius: 3.0,
+                        color: Colors.black.withOpacity(0.3),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 35),
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 16),
